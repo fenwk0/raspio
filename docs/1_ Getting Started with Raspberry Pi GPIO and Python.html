@@ -1,0 +1,248 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0139)http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-gb" lang="en-gb"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!--<base href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python">--><base href=".">
+  
+  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="">
+  <meta name="rights" content="">
+  <meta name="language" content="en-GB">
+  <meta name="title" content="1: Getting Started with Raspberry Pi GPIO and Python">
+  <meta name="author" content="Matt Lloyd">
+  <meta name="generator" content="Joomla! 1.6 - Open Source Content Management">
+  <title>1: Getting Started with Raspberry Pi GPIO and Python</title>
+  <script src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/core.js" type="text/javascript"></script>
+  <script src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/mootools-core.js" type="text/javascript"></script>
+  <script src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/caption.js" type="text/javascript"></script>
+  <script src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/mootools-more.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="./1_ Getting Started with Raspberry Pi GPIO and Python_files/system.css" type="text/css">
+<link rel="stylesheet" href="./1_ Getting Started with Raspberry Pi GPIO and Python_files/general.css" type="text/css">
+<link rel="stylesheet" href="./1_ Getting Started with Raspberry Pi GPIO and Python_files/template.css" type="text/css">
+<link rel="stylesheet" href="./1_ Getting Started with Raspberry Pi GPIO and Python_files/grey.css" type="text/css">
+<!--[if IE 6]>
+<link rel="stylesheet" href="/templates/a4joomla-thirty-three/css/ie6.css" type="text/css" />
+<script src="/templates/a4joomla-thirty-three/js/suckerfish.js" type="text/javascript"></script>
+<style type="text/css">
+img, div, a, input { behavior: url(/templates/a4joomla-thirty-three/iepngfix.htc) }
+</style>
+<script src="/templates/a4joomla-thirty-three/js/iepngfix_tilebg.js" type="text/javascript"></script>
+<![endif]-->
+<!--[if lte IE 7]>
+<link rel="stylesheet" href="/templates/a4joomla-thirty-three/css/ie67.css" type="text/css" />
+<![endif]-->
+<script type="text/javascript" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/mod_stat.php"></script>
+<style type="text/css">
+ #header {
+    height: 80px;
+ }
+ #allwrap {
+    margin-top:0px;
+ }
+ #logo {
+    width:440px;
+    height:80px;
+ }
+ #logo h2 {
+    font-size:52px;
+	margin-top:0px;
+ }
+ #logo h3 {
+	margin-top:-10px;
+ }
+ #banner {
+    height: 80px;
+ }
+ #banner div.moduletable {
+	margin-top:10px;
+ }
+ #headerright {
+    width:530px;
+    height:80px;
+	       background: none;   
+     } 
+ #search {
+   width:170px;
+   height:32px;
+ }
+ 
+</style>
+<!-- <script src="/templates/a4joomla-thirty-three/js/equalize.js" type="text/javascript"></script> -->
+</head>
+<body>
+
+
+
+<div id="allwrap" class="gainlayout" style="width:1030px;">
+
+<div id="headerwrap" class="gainlayout">
+  <div id="header" class="gainlayout">   
+      <div id="logo" class="gainlayout">
+         		    <a href="http://openmicros.org/"><img src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/openmicroslogo.png" border="0" alt=""></a>
+          
+      </div>
+	  <div id="headerright" class="gainlayout">
+                <div class="clr"></div>
+      </div>
+      <div class="clr"></div>
+  </div>	  
+  <div class="clr"></div>
+</div>
+
+<div id="topmenuwrap" class="gainlayout">
+           <div id="topmenu" class="gainlayout">
+           		<div class="moduletable">
+					<h3>Top</h3>
+					
+<ul class="menusfh">
+<li id="item-464"><a href="http://openmicros.org/">Home</a></li><li id="item-540"><a href="http://openmicros.org/index.php/documentation">documentation</a></li><li id="item-486"><a href="http://openmicros.org/index.php/component/kunena/?Itemid=0">FORUM</a></li><li id="item-484" class="current active"><a href="http://openmicros.org/index.php/articles">Articles by list</a></li><li id="item-490"><a href="http://openmicros.org/index.php/search">forum search</a></li><li id="item-541"><a href="http://wirelessthings.net/" target="_blank">WirelessThings Shop</a></li></ul>		</div>
+	
+           <div class="clr"></div>
+         </div> 
+            <div id="search" class="gainlayout">
+          		<div class="moduletable">
+					<h3>Search</h3>
+					<form action="http://openmicros.org/index.php/articles" method="post">
+	<div class="search">
+		<label for="mod-search-searchword">Search...</label><input name="searchword" id="mod-search-searchword" maxlength="20" class="inputbox" type="text" size="20" value="Search..." onblur="if (this.value==&#39;&#39;) this.value=&#39;Search...&#39;;" onfocus="if (this.value==&#39;Search...&#39;) this.value=&#39;&#39;;">	<input type="hidden" name="task" value="search">
+	<input type="hidden" name="option" value="com_search">
+	<input type="hidden" name="Itemid" value="484">
+	</div>
+</form>
+		</div>
+	 
+		<div class="clr"></div>  
+        </div>
+    <div class="clr"></div>
+</div> 
+
+<div id="wrap" class="gainlayout">
+
+  	  <div id="pathway" class="gainlayout">
+        
+<div class="breadcrumbs">
+<span class="showHere">You are here: </span><a href="http://openmicros.org/" class="pathway">Home</a> <img src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/arrow.png" alt=""> <a href="http://openmicros.org/index.php/articles" class="pathway">Articles by list</a> <img src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/arrow.png" alt=""> <a href="http://openmicros.org/index.php/articles/88-ciseco-product-documentation" class="pathway">Ciseco product documentation</a> <img src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/arrow.png" alt=""> <a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi" class="pathway">Raspberry Pi</a> <img src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/arrow.png" alt=""> <span>1: Getting Started with Raspberry Pi GPIO and Python</span></div>
+
+      <div class="clr"></div>
+	  </div>
+   
+    <div id="cbody" class="gainlayout">
+    <div id="content60" style="width:988px;">    
+
+	    
+      <div id="content" class="gainlayout">
+	  
+      <div class="item-page">
+		<h2>
+								<a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python">
+						1: Getting Started with Raspberry Pi GPIO and Python</a>
+						</h2>
+
+
+		<ul class="actions">
+		<li class="print-icon"><a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python?tmpl=component&amp;format=pdf" onclick="window.open(this.href,&#39;win2&#39;,&#39;status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no&#39;); return false;" title="PDF" rel="nofollow"><img src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/pdf_button.png" alt="PDF"></a></li>										<li class="print-icon">
+						<a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python?tmpl=component&amp;print=1&amp;page=" title="Print" onclick="window.open(this.href,&#39;win2&#39;,&#39;status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no&#39;); return false;" rel="nofollow"><img src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/printButton.png" alt="Print"></a>				</li>
+				
+								<li class="email-icon">
+						<a href="http://openmicros.org/index.php/component/mailto/?tmpl=component&amp;template=a4joomla-thirty-three&amp;link=828dda55b39505338c46e299039b3dd7c9c5a4b3" title="Email" onclick="window.open(this.href,&#39;win2&#39;,&#39;width=400,height=350,menubar=yes,resizable=yes&#39;); return false;"><img src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/emailButton.png" alt="Email"></a>				</li>
+												</ul>
+
+	
+	
+
+ <dl class="article-info">
+ <dt class="article-info-term">Details</dt>
+		<dd class="category-name">
+										Category: <a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi">Raspberry Pi</a>						</dd>
+		<dd class="modified">
+		Last Updated on Friday, 06 March 2015 12:37		</dd>
+	
+ </dl>
+
+	
+	<p><img alt="" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/dare to dream white header4.png"></p><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51);">&nbsp;</h2><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python#1" style="font-size: 15px; color: rgb(34, 34, 51); ">1. Overview</a></h2><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python#2" style="font-size: 15px; color: rgb(34, 34, 51); ">2. GPIO Basic's</a></h2><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python#3" style="font-size: 15px; color: rgb(34, 34, 51); ">3. Installing RPi.GPIO</a></h2><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python#4" style="font-size: 15px; color: rgb(34, 34, 51); ">4. LED and Pushbutton Slice</a></h2><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/217-getting-started-with-raspberry-pi-gpio-and-python#5" style="font-size: 15px; color: rgb(34, 34, 51); ">5. Some Code</a></h2><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); ">&nbsp;</h2><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); ">&nbsp;</h2><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a name="1"></a>1 Overview</h2><p>&nbsp;</p><p style="font-size: 12px; text-align: justify; color: rgb(68, 68, 85); ">This is the first of two articles showing basic GPIO on the Raspberry-Pi using the prototype area of the Slice of Pi. This covers basic details on the GPIO pins, setting up a Python library to allow access to the GPIO. There is an example circuit to build on the Slice and some code to get the outputs working.<br>
+This was originally a blog post on Matts blog at <a href="http://lwk.mjhsoting.co.uk/">lwk.mjhosting.co.uk</a></p><p>&nbsp;</p><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a name="2" style="font-size: 15px; "></a>2 GPIO Basic's</h2><p style="font-size: 12px; text-align: justify; color: rgb(68, 68, 85); "><a href="http://openmicros.org/images/GPIO/R-Pi.jpg"><img alt="" height="225" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/R-Pi-300x225.jpg" title="R-Pi" width="300"></a><br>
+The R-Pi has 17 GPIO pins brought out onto the header, most have alternated functions other than just I/O, there are two pins for UART, two for I2C and six for SPI. All the pins can be use for GPIO with either INPUT or OUTPUT, there also internal pull-up &amp; pull-downs for each pin but the I2C pins have and onboard pull-up so using them for GPIO may not work in some cases.<br>
+<br>
+Using any of the pins will require extra care, than most Arduino users maybe be used to. These pins are 3V3 not 5V like the AVR chips, and they a directly connected to the Broadcom chip at the heart of the R-Pi. This means there is not protection, if you send 5V down a pin there is a good chance of killing the Pi.<br>
+<br>
+There will also be an issue with trying to draw to much power form the pins, according to the data-sheet each pin programmed to current drive between 2mA and 16mA, and it has been warned that trying to draw 16mA from several pins at once could also lead to a damaged Pi.<br>
+<br>
+Also from the <a href="http://elinux.org/RPi_Low-level_peripherals" target="_blank" title="R-Pi Wiki">wiki</a> the "maximum permitted current draw from the 3v3 pin is 50mA" and the "maximum permitted current draw from the 5v pin is the USB input current (usually 1A) minus any current draw from the rest of the board." The current draw for Model B is stated as 700mA so with a 1A power supply this leaves about 300mA to play with.<br>
+<br>
+Anyway enough about power theres still plenty to try driving some basis LED's and use the UART to talk to an XRF.<br>
+<br>
+So how does one go about talking to the GPIO's? Well thanks to a little python library its nice and simple.&nbsp;I'll be using a Debian install but this should work on the others.</p><p>&nbsp;</p><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a name="3" style="font-size: 15px; "></a>3 Installing RPi.GPIO</h2><p style="margin-left: 40px;"><em>NOTE 1: The instructions here refer to an early version of RPi.GPIO. Please search the web for the latest version and replace the version numbers in the instructions below.</em></p><p style="margin-left: 40px;"><em>NOTE 2:&nbsp;<span style="font-size: 11.818181991577148px;">If you have purchased Ciseco's <a href="http://shop.ciseco.co.uk/4gb-wheezy-raspberry-pi-sd-card-configured-for-ciseco-products/">4G Raspberry Wheezy SD card, configured for Ciseco products</a></span></em><em><span style="font-size: 11.818181991577148px;">, or used the Ciseco Wheezy image to create an SD card yourself, then the RPi.GPIO should already be installed and you can skip this step.&nbsp;</span></em></p><p><a href="http://pypi.python.org/pypi/RPi.GPIO" style="font-size: 11.818181991577148px; line-height: 1.5;" title="RPi.GPIO">RPi.GPIO</a><span style="font-size: 11.818181991577148px; line-height: 1.5;"> is a small python library that take some of the complexity out of driving the GPIO pins, once install a single LED can be lit with 3 lines of python. Installing the library is almost as simple, either at a text console or using LXTerminal enter the following</span></p><p style="font-size: 12px; ">&nbsp;</p><pre style="font-size:12px;">$ wget http://pypi.python.org/packages/source/R/RPi.GPIO/RPi.GPIO-0.1.0.tar.gz
+    $ tar zxf RPi.GPIO-0.1.0.tar.gz
+    $ cd RPi.GPIO-0.1.0
+    $ sudo python setup.py install</pre><p><a href="./1_ Getting Started with Raspberry Pi GPIO and Python_files/RPi.GPIO-setup.png"><img alt="" height="474" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/RPi.GPIO-setup.png" title="RPi.GPIO setup" width="672"></a><br>
+<br>
+It should look something like the above just before you hit enter on the last command. That's it we now have RPi.GPIO python library installed.</p><p>&nbsp;</p><p>&nbsp;</p><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a name="4" style="font-size: 15px; "></a>4 LED and Pushbutton Slice</h2><p style="font-size: 12px; text-align: justify; color: rgb(68, 68, 85); ">So now I need and LED or two to Flash. So using a <a href="http://shop.ciseco.co.uk/slice-of-pi/" title="Slice of Pi">Slice of Pi</a> from <a href="http://shop.ciseco.co.uk/" title="Ciseco PLC">Ciseco</a> I have wired up four LED's with resistors and two Push button's.<br>
+<br>
+First to be soldered up were the LED's and push buttons then I adde the resistors and connecting wires.<br>
+<br>
+To keep the GPIO pins nice and safe I'm using 470R resistors for the RED,YELLOW and GREEN LED's and a 330R for the BLUE, this will keep the current of each led to around 6-7mA. Here's the schematic and the board<br>
+<br>
+<a href="http://openmicros.org/images/GPIO/Slice-Schematic-11.png"><img alt="" height="225" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/Slice-Schematic-11-300x225.png" title="Slice Schematic 1" width="300"></a> <a href="http://openmicros.org/images/GPIO/IMG_7468-e1336337321668.jpg"><img alt="" height="300" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/IMG_7468-e1336337321668-225x300.jpg" title="IMG_7468" width="225"></a><br>
+<br>
+<br>
+If you look at the LED's I'm using the 3.3v rail to power the led and have the cathode going to the GPIO's this mean that to turn the LED on we set the output to LOW or False (in python's case) but to turn the off we set the output to HIGH or True.<br>
+This means we a sinking the current through the Raspberry Pi rather that trying to source it from the pin's. For the push button we are using a 10K pull-down resistor, this makes sure the button read a solid LOW or False when not pressed, when pressed the 3.3v is connected and we get a solid HIGH or True reading.</p><p>&nbsp;</p><h2 style="line-height: 18px; letter-spacing: normal; color: rgb(34, 34, 51); "><a name="5" style="font-size: 15px; "></a>5 Some Code</h2><p style="font-size: 12px; text-align: justify; color: rgb(68, 68, 85); ">I said turning LED's on was easy well try this in a terminal:</p><pre style="font-size:12px;">$ sudo python
+    &gt;&gt;&gt; import RPi.GPIO as GPIO
+    &gt;&gt;&gt; GPIO.setup(18, GPIO.OUT)
+    &gt;&gt;&gt; GPIO.output(18, False)
+</pre><br>
+<p>Again it should look a little some thing like this<br>
+<br>
+<a href="./1_ Getting Started with Raspberry Pi GPIO and Python_files/GPIO-code.png"><img alt="" height="474" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/GPIO-code.png" title="GPIO Test code" width="672"></a><br>
+<br>
+<a href="http://openmicros.org/images/GPIO/Red-LED.jpg"><img alt="" height="225" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/Red-LED-300x225.jpg" title="Red LED" width="300"></a><br>
+<br>
+Anyone trying this themselves may notice that the RED LED actual turned&nbsp;on after the GPIO.setup line and that GPIO.output did nothing. This is because we have the cathode of the LED's wired to the GPIO, and are using the Raspberry Pi to switch the GND. The default state for a output pin is LOW and so this also power to flow throughout the LED. &nbsp;So how about turning that yellow LED on:-<br>
+&nbsp;</p><pre style="font-size:12px;">&gt;&gt;&gt; GPIO.setup(16, GPIO.OUT)</pre><br>
+<p><a href="./1_ Getting Started with Raspberry Pi GPIO and Python_files/GPIO-Code-2.png"><img alt="" height="474" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/GPIO-Code-2.png" title="GPIO Code 2" width="672"></a><br>
+<br>
+<a href="http://openmicros.org/images/GPIO/Yellow-LED.jpg"><img alt="" height="225" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/Yellow-LED-300x225.jpg" title="Yellow LED" width="300"></a><br>
+<br>
+Simple, now to turn both LED's off we set the inputs HIGH or True like so:<br>
+&nbsp;</p><pre style="font-size:12px;">&gt;&gt;&gt; GPIO.output(18, True)
+    &gt;&gt;&gt; GPIO.output(16, True)</pre><br>
+<p>Now why if we wired the red LED to GPIO5 on the Slice of Pi, why am I using 18 to control it? Well theres a bit of fun with the pin numbering on Raspberry Pi, and some how i don't expect it to go anyway and time soon, it like that odd gap on the Arduino headers. It comes from this post originally <a href="http://www.raspberrypi.org/archives/384">Pinout for GPIO connectors</a>, better shown in the left pic bellow, anyway it turns out the original numbering of GPIO0-GPOI7 relates to nothing logical once inside linux, as they pins are accessed via there BCM2835(the chip on the Pi) GPIO numbers. See the right pic for the internal numbering, also all the signal named pins can be used as GPIO's and have numbers as well.<br>
+<br>
+Anyway RPi.GPIO python library has used yet another form of reference which is to us the pin number on the header, This give three names for each pin :( When referred to by pin number (officially P1_18) we are talking about pin 18 as counted out on the header, GPIO5 by name and GPIO24 internally by the BCM2835. Now if you ever work with the IO using the Shell file access or C memory mapped registers your going to use the BCM2835 numbering.<br>
+Confused yet, I was till did a little table to help. There more on this on the Raspberry Pi wiki page <a href="http://elinux.org/RPi_Low-level_peripherals">Low Level Peripherals</a><br>
+<br>
+For now I will leave you with the diagrams and table bellow, and just know you need to use the RPi.GPIO numbers in python.<br>
+This is all ready getting far to long so ill cover the inputs and making something interactive in another post.<br>
+<br>
+<a href="./1_ Getting Started with Raspberry Pi GPIO and Python_files/GPIOs.png"><img alt="" height="586" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/GPIOs.png" title="GPIOs" width="254"></a><a href="./1_ Getting Started with Raspberry Pi GPIO and Python_files/GPIOs-c-n.gif"><img alt="" height="586" src="./1_ Getting Started with Raspberry Pi GPIO and Python_files/GPIOs-c-n.gif" title="GPIOs-c-n" width="254"></a></p><table border="1"><tbody><tr><th>Pin Numbers</th><th>RPi.GPIO</th><th>Raspberry Pi Name</th><th>BCM2835</th></tr><tr><td>P1_01</td><td>1</td><td>3V3</td><td>&nbsp;</td></tr><tr><td>P1_02</td><td>2</td><td>5V0</td><td>&nbsp;</td></tr><tr><td>P1_03</td><td>3</td><td>SDA0</td><td>GPIO0</td></tr><tr><td>P1_04</td><td>4</td><td>DNC</td><td>&nbsp;</td></tr><tr><td>P1_05</td><td>5</td><td>SCL0</td><td>GPIO1</td></tr><tr><td>P1_06</td><td>6</td><td>GND</td><td>&nbsp;</td></tr><tr><td>P1_07</td><td>7</td><td>GPIO7</td><td>GPIO4</td></tr><tr><td>P1_08</td><td>8</td><td>TXD</td><td>GPIO14</td></tr><tr><td>P1_09</td><td>9</td><td>DNC</td><td>&nbsp;</td></tr><tr><td>P1_10</td><td>10</td><td>RXD</td><td>GPIO15</td></tr><tr><td>P1_11</td><td>11</td><td>GPIO0</td><td>GPIO17</td></tr><tr><td>P1_12</td><td>12</td><td>GPIO1</td><td>GPIO18</td></tr><tr><td>P1_13</td><td>13</td><td>GPIO2</td><td>GPIO21</td></tr><tr><td>P1_14</td><td>14</td><td>DNC</td><td>&nbsp;</td></tr><tr><td>P1_15</td><td>15</td><td>GPIO3</td><td>GPIO22</td></tr><tr><td>P1_16</td><td>16</td><td>GPIO4</td><td>GPIO23</td></tr><tr><td>P1_17</td><td>17</td><td>DNC</td><td>&nbsp;</td></tr><tr><td>P1_18</td><td>18</td><td>GPIO5</td><td>GPIO24</td></tr><tr><td>P1_19</td><td>19</td><td>SPI_MOSI</td><td>GPIO10</td></tr><tr><td>P1_20</td><td>20</td><td>DNC</td><td>&nbsp;</td></tr><tr><td>P1_21</td><td>21</td><td>SPI_MISO</td><td>GPIO9</td></tr><tr><td>P1_22</td><td>22</td><td>GPIO6</td><td>GPIO25</td></tr><tr><td>P1_23</td><td>23</td><td>SPI_SCLK</td><td>GPIO11</td></tr><tr><td>P1_24</td><td>24</td><td>SPI_CE0_N</td><td>GPIO8</td></tr><tr><td>P1_25</td><td>25</td><td>DNC</td><td>&nbsp;</td></tr><tr><td>P1_26</td><td>26</td><td>SPI_CE1_N</td><td>GPIO7</td></tr></tbody></table><p>&nbsp;</p><p>&nbsp;</p> 
+				<ul class="pagenav">
+					<li class="pagenav-prev">
+						<a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/283-setting-up-my-raspberry-pi" rel="next">&lt; Prev</a>
+					</li>
+					<li class="pagenav-next">
+						<a href="http://openmicros.org/index.php/articles/94-ciseco-product-documentation/raspberry-pi/218-2-raspberry-pi-gpio-inputs-in-python" rel="prev">Next &gt;</a>
+					</li>
+				</ul>
+	</div> 
+      </div> 
+          
+  </div>
+      <div class="clr"></div>
+  </div>
+   
+  
+<!--end of wrap-->
+</div>
+    
+<!--end of allwrap-->
+</div>
+<div id="footerwrap" class="gainlayout" style="width:1030px;"> 
+  <div id="footer" class="gainlayout">  
+         </div>
+   
+</div>
+
+
+
+</body></html>
